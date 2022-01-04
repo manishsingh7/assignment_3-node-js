@@ -1,11 +1,21 @@
-var http = require('http');
-var fs = require('fs');
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-fs.writeFile("index.html", "<h1>Hello World</h1>", (err) => {
-    console.log(err);
-})
 
-http.createServer(function (req, res) {
-    res.write(fs.readFileSync("index.html", "utf-8"));
-    res.end();
-}).listen(3000); 
+const appointment={
+  name:'Satyam Kumar',
+  employeeId:'00005152',
+  appointment:'9:00 (16-12-2021)',
+  email:'abcxyz@gmail.com',
+  phone:'+91123456789'
+
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+    <App appointment={appointment} />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+reportWebVitals();
